@@ -403,7 +403,7 @@ endif;
 <table class="form-table" role="presentation">
 	<tr class="user-user-login-wrap">
 		<th><label for="user_login"><?php _e( 'Username' ); ?></label></th>
-		<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" /> <span class="description"><?php _e( 'Usernames cannot be changed.' ); ?></span></td>
+		<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" autocomplete="username" /> <span class="description"><?php _e( 'Usernames cannot be changed.' ); ?></span></td>
 	</tr>
 
 		<?php if ( ! IS_PROFILE_PAGE && ! is_network_admin() && current_user_can( 'promote_user', $profileuser->ID ) ) : ?>
@@ -442,17 +442,17 @@ endif;
 
 <tr class="user-first-name-wrap">
 	<th><label for="first_name"><?php _e( 'First Name' ); ?></label></th>
-	<td><input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ); ?>" class="regular-text" /></td>
+	<td><input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ); ?>" class="regular-text" autocomplete="given-name" /></td>
 </tr>
 
 <tr class="user-last-name-wrap">
 	<th><label for="last_name"><?php _e( 'Last Name' ); ?></label></th>
-	<td><input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ); ?>" class="regular-text" /></td>
+	<td><input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ); ?>" class="regular-text" autocomplete="family-name" /></td>
 </tr>
 
 <tr class="user-nickname-wrap">
 	<th><label for="nickname"><?php _e( 'Nickname' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label></th>
-	<td><input type="text" name="nickname" id="nickname" value="<?php echo esc_attr( $profileuser->nickname ); ?>" class="regular-text" /></td>
+	<td><input type="text" name="nickname" id="nickname" value="<?php echo esc_attr( $profileuser->nickname ); ?>" class="regular-text" autocomplete="nickname" /></td>
 </tr>
 
 <tr class="user-display-name-wrap">
@@ -500,7 +500,7 @@ endif;
 	<table class="form-table" role="presentation">
 	<tr class="user-email-wrap">
 		<th><label for="email"><?php _e( 'Email' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label></th>
-		<td><input type="email" name="email" id="email" aria-describedby="email-description" value="<?php echo esc_attr( $profileuser->user_email ); ?>" class="regular-text ltr" />
+		<td><input type="email" name="email" id="email" aria-describedby="email-description" value="<?php echo esc_attr( $profileuser->user_email ); ?>" class="regular-text ltr" autocomplete="email"/>
 		<?php
 		if ( $profileuser->ID == $current_user->ID ) :
 			?>
@@ -631,7 +631,7 @@ endif;
 		<button type="button" class="button wp-generate-pw hide-if-no-js"><?php _e( 'Generate Password' ); ?></button>
 		<div class="wp-pwd hide-if-js">
 			<span class="password-input-wrapper">
-				<input type="password" name="pass1" id="pass1" class="regular-text" value="" autocomplete="off" data-pw="<?php echo esc_attr( wp_generate_password( 24 ) ); ?>" aria-describedby="pass-strength-result" />
+				<input type="password" name="pass1" id="pass1" class="regular-text" value="" autocomplete="new-password" data-pw="<?php echo esc_attr( wp_generate_password( 24 ) ); ?>" aria-describedby="pass-strength-result" />
 			</span>
 			<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php esc_attr_e( 'Hide password' ); ?>">
 				<span class="dashicons dashicons-hidden" aria-hidden="true"></span>
@@ -648,7 +648,7 @@ endif;
 <tr class="user-pass2-wrap hide-if-js">
 	<th scope="row"><label for="pass2"><?php _e( 'Repeat New Password' ); ?></label></th>
 	<td>
-	<input name="pass2" type="password" id="pass2" class="regular-text" value="" autocomplete="off" />
+	<input name="pass2" type="password" id="pass2" class="regular-text" value="" autocomplete="new-password" />
 	<p class="description"><?php _e( 'Type your new password again.' ); ?></p>
 	</td>
 </tr>
